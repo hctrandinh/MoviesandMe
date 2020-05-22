@@ -9,22 +9,46 @@ import {
   Text,
   FlatList,
 } from "react-native";
-import films from "../Helpers/filmsData";
 import FilmItem from "./FilmItem";
+import { getFilmsFromApiWithSearchedText } from "../API/TMDBApi"; // import { } from ... car c'est un export nommé dans TMDBApi.js
+import { getImageFromApi } from "../API/TMDBApi";
 
 class Search extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { films: [] };
+    this.searchedText = "";
+    // Ici on va créer les propriétés de notre component custom Search
+  }
+
+  _searchTextInputChanged(text) {
+    this.searchedText = text; // Modification du texte recherché à chaque saisie de texte, sans passer par le setState comme avant
+  }
+
+  _loadFilms() {
+    if (this.searchedText.length > 0) {
+      // Seulement si le texte recherché n'est pas vide
+      getFilmsFromApiWithSearchedText(this.searchedText).then((data) => {
+        this.setState({ films: data.results });
+      });
+    }
+  }
+
   render() {
+    console.log("RENDER");
     return (
       <View style={styles.main_container}>
         <TextInput
           style={styles.textinput}
-          placeholder="Titre du film que tu cherches"
+          placeholder="Titre du film"
+          onChangeText={(text) => this._searchTextInputChanged(text)}
+          onSubmitEditing={() => this._loadFilms()}
         />
-        <Button title="Rechercher" onPress={() => {}} />
+        <Button title="Rechercher" onPress={() => this._loadFilms()} />
         <FlatList
-          data={films}
+          data={this.state.films}
           keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => <FilmItem film={item}></FilmItem>}
+          renderItem={({ item }) => <FilmItem film={item} />}
         />
       </View>
     );
