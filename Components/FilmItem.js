@@ -1,10 +1,32 @@
 // Components/FilmItem.js
 
 import React from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Animated,
+  Dimensions,
+} from "react-native";
 import { getImageFromApi } from "../API/TMDBApi";
+import FadeIn from "../Animations/FadeIn";
 
 class FilmItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      positionLeft: new Animated.Value(Dimensions.get("window").width),
+    };
+  }
+
+  componentDidMount() {
+    Animated.spring(this.state.positionLeft, {
+      toValue: 0,
+    }).start();
+  }
+
   _displayFavoriteImage() {
     if (this.props.isFilmFavorite) {
       // Si la props isFilmFavorite vaut true, on affiche le 🖤
