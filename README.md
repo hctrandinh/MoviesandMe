@@ -14,25 +14,25 @@ On cherche les films Dragon Ball:
 ![img1](./Images/img01.png)
 
 On en sélectionne un et on regarde les détails:
-![img2](./Image/img02.png)
+![img2](./Images/img02.png)
 
 On le met en favoris:
-![img3](./Image/img03.png)
+![img3](./Images/img03.png)
 
 Il a été ajouté aux favoris:
-![img4](./Image/img04.png)
+![img4](./Images/img04.png)
 
 Le bouton share nous propose différents moyens de partage:
-![img5](./Image/img05.png)
+![img5](./Images/img05.png)
 
 Je décide d'envoyer à moi-même le détail du film sélectionné sur Messenger:
-![img6](./Image/img06.png)
+![img6](./Images/img06.png)
 
 On a la réception comme prévu sur Messenger:
-![img1](./Image/img07.png)
+![img1](./Images/img07.png)
 
 Cet onglet n'a pas d'utilité, il a seulement été utilisé dans le cours pour tester une notion sur le tactile:
-![img1](./Image/img08.png)
+![img1](./Images/img08.png)
 
 Dans un autre usage, il permet à l'utilisateur de déplacer les éléments sur l'aplication comme il le souhaite avec son doigt:
-![img1](./Image/img09.png)
+![img1](./Images/img09.png)
